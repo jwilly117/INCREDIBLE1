@@ -7,6 +7,7 @@ body{
     background-color: rgb(255, 225, 127);
     background-image: url("images/background2.jpg");
     background-size: cover;
+    background-attachment: fixed;
     
 }
 
@@ -61,4 +62,53 @@ img{
 .btn-group{
     width: 100%;
     height: 50px;
+}
+#ExteriorDoorLabel{
+    background-color: rgb(243, 95, 95);
+    padding: 15px;
+    border-radius: 10px;
+}
+#StormDoorLabel{
+    background-color: skyblue;
+    padding: 15px;
+    border-radius: 10px;
+}
+#WindowLabel{
+    background-color: yellow;
+    padding: 15px;
+    border-radius: 10px;
+}
+#MeasureLabel{
+    background-color: rgb(14, 156, 14);
+    padding: 15px;
+    border-radius: 10px;
+}
+#CabinetLabel{
+    background-color: rgb(90, 90, 90);
+    padding: 15px;
+    border-radius: 10px;
+}
+#HDLabel{
+    background-color: rgb(224, 101, 19);
+    padding: 15px;
+    border-radius: 10px;
+}
+#LongLabel{
+    background-color: rgb(203, 131, 236);
+    padding: 15px;
+    border-radius: 10px;
+}
+.btn-success{
+    background-color: rgb(37, 206, 206);
+    
+}
+.btn-success:hover{
+    background-color: rgb(66, 251, 251);
+}
+.btn-success:active{
+    background-color: rgb(151, 153, 153);
+
+}
+.btn-success:focus{
+    background-color: rgb(238, 236, 130);
 }
