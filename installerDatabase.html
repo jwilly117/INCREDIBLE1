@@ -9,13 +9,16 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Firebase CDN -->
-
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
 
 
 
@@ -58,7 +61,64 @@
         <br>
 
         <!-- Exterior Doors -->
-        <h3 id="ExteriorDoorLabel">Exterior Door Installers</h3>
+        <h3 id="ExteriorDoorLabel">Exterior Door Installers <span id="rightbutton">
+            <!-- <button type="button" id="addExtInstaller" data-toggle="modal" data-target="#mymodal" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3> -->
+            <button type="button" id="addExt" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#mymodal">
+                Add
+              </button>
+            </h3>
+        </span>
+
+        
+        <!-- Modal Fade -->
+        <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add Ext Door Installer</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" >First Name</label>
+                        <input type="text" class="form-control"  id="extFirstName" placeholder="">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" >Last Name</label>
+                        <input type="email"  class="form-control" id="extLastName" placeholder="">
+                      </div>
+                     <hr>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" >Phone</label>
+                        <input type="email" class="form-control" id="extPhone" placeholder="#">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" >Email</label>
+                        <input type="email" class="form-control" id="extEmail" placeholder="example@gmail.com">
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Home Town</label>
+                        <input type="email" class="form-control" id="extHome" placeholder="">
+                      </div>
+                    <hr>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label" >Example textarea</label>
+                        <textarea class="form-control" id="extNotes" rows="3" placeholder="Enter notes about schedule / availability / etc"></textarea>
+                      </div>
+                  <hr>
+                      Please review all information before submission. 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="saveExt">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Table for Exterior Installers -->
+
         <table class="table table-striped table-hover">
             <thead>
               <tr>
@@ -68,6 +128,7 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Start Date</th>
+                <th scope="col">Home</th>
                 <th scope="col">Notes</th>
                 
               </tr>
@@ -80,6 +141,7 @@
                 <td>458-678-9393</td>
                 <td>Mark Aotoo@gmail.com</td>
                 <td>November 11, 2020</td>
+                <td>Oakwood</td>
                 <td></td>
               </tr>
               <tr>
@@ -89,15 +151,17 @@
                 <td>898-652-6014</td>
                 <td>Dumbass@gmail.com</td>
                 <td>November 11, 2020</td>
+                <td>Oakwood</td>
                 <td>Works after 10am</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
+                <td class="clickme">Larry</td>
                 <td>Bird</td>
                 <td>770-540-5565</td>
                 <td>larrythebird@gmail.com</td>
                 <td>November 11, 2020</td>
+                <td>Oakwood</td>
                 <td></td>
               </tr>
             </tbody>
@@ -107,7 +171,7 @@
 
           <!-- Storm Doors -->
           <!-- Exterior Doors -->
-        <h3 id="StormDoorLabel">Storm Door Installers</h3>
+        <h3 id="StormDoorLabel">Storm Door Installers <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
         <table class="table table-striped table-hover">
             <thead>
               <tr>
@@ -154,9 +218,9 @@
           <hr>
           <br>
 
-          <!-- Windows -->
+          <!-- Window Installers -->
 
-          <h3 id="WindowLabel">Window Installers</h3>
+          <h3 id="WindowLabel">Window Installers <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -205,7 +269,7 @@
 
             <!-- Measure Techs -->
 
-            <h3 id="MeasureLabel">Measure Techs</h3>
+            <h3 id="MeasureLabel">Measure Techs <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -254,7 +318,7 @@
 
             <!-- Cabinet Installers -->
 
-            <h3 id="CabinetLabel">Cabinet / Kitchen Installers</h3>
+            <h3 id="CabinetLabel">Cabinet / Kitchen Installers <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -303,7 +367,7 @@
 
             <!-- Home Depot -->
 
-            <h3 id="HDLabel">Home Depot</h3>
+            <h3 id="HDLabel">Home Depot <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -352,7 +416,7 @@
 
             <!-- Long / Other Contractors -->
         
-            <h3 id="LongLabel">Long / Other Contractors</h3>
+            <h3 id="LongLabel">Long / Other Contractors <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -401,7 +465,7 @@
 
             <!-- Office / Other -->
 
-          <h3 id="officeLabel">Office / Other</h3>
+          <h3 id="officeLabel">Office / Other <span id="rightbutton"><button type="button" style="height: 35px; margin-top: 0;" class="btn btn-secondary">Add</button></h3>
           <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -451,4 +515,8 @@
     </div>
     
 </body>
+
+        <!-- Our script must be loaded after the firebase references -->
+        <script src="fire.js"></script>
+
 </html>
