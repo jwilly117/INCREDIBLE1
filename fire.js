@@ -1,5 +1,4 @@
 
-
 var firebaseConfig = {
     apiKey: "AIzaSyDlcbijm1mEcCm4lL2Sl2Wu8VL00NjWhdA",
     authDomain: "incredible-applications.firebaseapp.com",
@@ -10,10 +9,11 @@ var firebaseConfig = {
     appId: "1:811804729674:web:7ded90ff95e34888ed21b3"
 };
 
+
 // Click events for all of the add buttons
 // $("#addExt").click(function(){
-//     alert("Hello, you have clicked the add installer button");
-    
+// alert("Hello, you have clicked the add installer button");
+
 
 // })
 
